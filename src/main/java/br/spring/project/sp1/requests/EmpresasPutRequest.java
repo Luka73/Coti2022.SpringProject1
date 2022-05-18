@@ -15,7 +15,4 @@ public class EmpresasPutRequest {
 
     private Integer idEmpresa;
     private String nomeFantasia;
-    private String razaoSocial;
-    private String cnpj;
-
 }
