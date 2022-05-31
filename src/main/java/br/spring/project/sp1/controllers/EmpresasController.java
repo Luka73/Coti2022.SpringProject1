@@ -31,6 +31,20 @@ public class EmpresasController {
     @RequestMapping(value = ENDPOINT, method = RequestMethod.POST)
     public ResponseEntity<String> post(@RequestBody EmpresaPostRequest request) {
         try{
+
+            if(empresaRepository.findByCnpj(request.getCnpj()) != null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("O cnpj '" + request.getCnpj()
+                                + "' já está cadastrado no sistema, tente outro.");
+            }
+
+            if(empresaRepository.findByRazaoSocial(request.getRazaoSocial())
+                    != null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("A razão social '" +
+                                request.getRazaoSocial() + "' já está cadastrada no sistema, tente outra.");
+            }
+
             Empresa empresa =  new Empresa();
             empresa.setNomeFantasia(request.getNomeFantasia());
             empresa.setRazaoSocial(request.getRazaoSocial());
