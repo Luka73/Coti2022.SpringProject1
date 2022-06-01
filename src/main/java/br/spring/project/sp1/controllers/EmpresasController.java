@@ -109,7 +109,7 @@ public class EmpresasController {
     public ResponseEntity<List<Empresa>> getAll() {
         try {
             List<Empresa> consulta = (List<Empresa>) empresaRepository.findAll();
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(consulta);
+            return ResponseEntity.status(HttpStatus.OK).body(consulta);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
