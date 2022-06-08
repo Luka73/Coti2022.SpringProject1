@@ -17,8 +17,8 @@ import javax.transaction.Transactional;
 
 @Transactional
 @Controller
-public class RegistrerUserController {
-    private static final String ENDPOINT = "/api/registrer-user";
+public class RegisterUserController {
+    private static final String ENDPOINT = "/api/register-user";
 
     @Autowired
     private IUsuarioRepository usuarioRepository;
